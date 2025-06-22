@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Instalação Elétrica e Calculadora</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+            text-align: center;
+        }
+        header h1 {
+            padding: 5px;
+            margin: 0;
+        }
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background: #e8491d;
+            color: #fff;
+        }
+        section {
+            padding: 20px;
+            margin-top: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e8491d;
+            padding-bottom: 10px;
+        }
+        .alerta-seguranca {
+            border: 3px solid #c00;
+            padding: 15px;
+            background-color: #ffe0e0;
+            color: #c00;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .alerta-seguranca h3 {
+            margin-top: 0;
+            color: #c00;
+        }
+        .passo-a-passo li {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid #2c3e50;
+        }
+        .ferramentas ul {
+            list-style: none;
+            padding: 0;
+        }
+        .ferramentas li::before {
+            content: "✓ ";
+            color: #e8491d;
+            font-weight: bold;
+        }
+        .calculadora {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #bdc3c7;
+        }
+        .calculadora select, .calculadora input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Important */
+        }
+        .calculadora button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #e8491d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .calculadora button:hover {
+            background-color: #d35400;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f6fd;
+            border-left: 5px solid #3498db;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            background: #2c3e50;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Guia de Instalação Elétrica Residencial e Calculadora</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="#inicio">Início</a>
+            <a href="#passoapasso">Passo a Passo</a>
+            <a href="#quadro">Montagem do Quadro</a>
+            <a href="#seguranca">Segurança</a>
+            <a href="#calculadora">Calculadora</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="inicio">
+            <div class="alerta-seguranca">
+                <h3>LEIA ANTES DE PROSSEGUIR</h3>
+                Este guia é para fins de aprendizado e planejamento. A execução de qualquer serviço elétrico deve ser feita por um profissional qualificado para garantir sua segurança e a conformidade com as normas.
+            </div>
+            <h2>Conceitos Essenciais da Elétrica Residencial</h2>
+            <p>Antes de qualquer passo prático, é vital entender alguns conceitos definidos pela norma NBR 5410, que rege as instalações elétricas de baixa tensão no Brasil.</p>
+            <ul>
+                <li><strong>Levantamento de Carga:</strong> É o primeiro passo de um projeto. Consiste em somar a potência de todos os equipamentos de iluminação e tomadas para determinar a potência total da residência. Nossa calculadora ajuda nisso.</li>
+                <li><strong>Circuitos:</strong> São divisões da instalação elétrica. É fundamental separar os circuitos de iluminação, tomadas de uso geral (TUGs) e tomadas de uso específico (TUEs - para equipamentos de alta potência como chuveiros e ar-condicionado).</li>
+                <li><strong>Disjuntores:</strong> Dispositivos de segurança que interrompem o fluxo de energia (desarmam) em caso de sobrecarga ou curto-circuito, protegendo a fiação e os equipamentos.</li>
+                <li><strong>Dispositivo DR (Diferencial Residual):</strong> Protege contra choques elétricos. É obrigatório em áreas molhadas como cozinhas e banheiros.</li>
+                <li><strong>DPS (Dispositivo de Proteção contra Surtos):</strong> Protege os equipamentos contra picos de tensão causados por raios ou manobras na rede elétrica.</li>
+            </ul>
+        </section>
+
+        <section id="passoapasso">
+            <h2>Passo a Passo Simplificado de uma Instalação Elétrica</h2>
+            <p>Este é um resumo das etapas de uma instalação. Cada passo possui detalhes técnicos complexos.</p>
+            <ol class="passo-a-passo">
+                <li><strong>Projeto Elétrico:</strong> Feito por um engenheiro, detalha todos os pontos, trajeto dos fios, divisão de circuitos e dimensionamento de cabos e disjuntores. Começa com o levantamento de carga (use a calculadora abaixo como base).</li>
+                <li><strong>Marcação e Abertura das Paredes:</strong> Marcar na alvenaria onde ficarão as caixinhas de tomadas, interruptores e o quadro de distribuição. Em seguida, cortar a parede para embutir os eletrodutos (conduítes).</li>
+                <li><strong>Instalação dos Eletrodutos e Caixinhas:</strong> Passar os conduítes que servirão de caminho para os fios e fixar as caixinhas (4x2 ou 4x4) nos locais marcados.</li>
+                <li><strong>Montagem do Quadro de Distribuição (QDC):</strong> Instalar o quadro em local de fácil acesso e montar os disjuntores, DR e DPS. (Veja detalhes na próxima seção).</li>
+                <li><strong>Passagem da Fiação:</strong> Passar os fios pelos conduítes, de acordo com as cores e bitolas especificadas no projeto. A NBR 5410 recomenda: Azul Claro (Neutro), Verde ou "Verde e Amarelo" (Terra) e outras cores para as Fases (preto, vermelho, marrom).</li>
+                <li><strong>Conexão dos Componentes:</strong> Conectar os fios em tomadas, interruptores e pontos de iluminação.</li>
+                <li><strong>Conexão no QDC e Identificação:</strong> Conectar cada circuito ao seu respectivo disjuntor no quadro. É obrigatório identificar cada disjuntor com uma etiqueta (ex: "Iluminação Sala", "Tomadas Cozinha", "Chuveiro").</li>
+                <li><strong>Inspeção e Testes:</strong> Com tudo montado, o profissional realiza testes de continuidade e isolação antes de ligar a energia pela primeira vez para garantir que não há curtos ou falhas.</li>
+            </ol>
+        </section>
+
+        <section id="quadro">
+            <h2>Como Montar o Quadro de Distribuição (QDC)</h2>
+            <p>O QDC é o coração da instalação elétrica. Sua montagem correta é crucial.</p>
+            <ol class="passo-a-passo">
+                <li><strong>Fixar a Caixa:</strong> Chumbada na parede em um local de fácil acesso e sem umidade.</li>
+                <li><strong>Instalar os Trilhos DIN:</strong> São os trilhos metálicos onde os disjuntores são encaixados.</li>
+                <li><strong>Ordem de Montagem nos Trilhos:</strong>
+                    <ul>
+                        <li><strong>Disjuntor Geral:</strong> O primeiro, por onde a energia da rua entra.</li>
+                        <li><strong>DPS:</strong> Instalado logo após o disjuntor geral, ligado às fases e ao barramento de terra.</li>
+                        <li><strong>Dispositivo DR:</strong> Instalado após o DPS. Toda a corrente (fase e neutro) que vai para os circuitos protegidos por ele deve passar por dentro do DR.</li>
+                        <li><strong>Disjuntores dos Circuitos:</strong> Encaixados após o DR. Cada um alimentará um circuito específico da casa.</li>
+                    </ul>
+                </li>
+                <li><strong>Instalar Barramentos:</strong> Fixar o barramento de Neutro e o de Terra. O cabo de aterramento da residência é conectado diretamente ao barramento de Terra.</li>
+                <li><strong>Fazer as Conexões (Jumpeamento):</strong> Um profissional usará cabos ou pentes de conexão para interligar a saída do disjuntor geral à entrada do DPS/DR, e a saída destes para a entrada dos disjuntores dos circuitos.</li>
+            </ol>
+             <div class="alerta-seguranca" style="background-color: #e6f7ff; border-color:#3498db; color:#2980b9;">
+                <strong>Dica Profissional:</strong> A sequência correta da "cascata" de proteção (Geral -> DPS -> DR -> Circuitos) é fundamental para o funcionamento correto e seguro do sistema.
+            </div>
+        </section>
+
+        <section id="seguranca">
+            <h2>Ferramentas e Segurança</h2>
+            <div class="ferramentas">
+                <h3>EPIs - Equipamentos de Proteção Individual (OBRIGATÓRIO)</h3>
+                <ul>
+                    <li>Luvas de proteção isolantes</li>
+                    <li>Óculos de segurança</li>
+                    <li>Calçados de segurança com sola de borracha</li>
+                </ul>
+                <h3>Ferramentas Essenciais (Sempre Isoladas - 1000V)</h3>
+                <ul>
+                    <li>Multímetro ou alicate amperímetro</li>
+                    <li>Alicate de corte diagonal</li>
+                    <li>Alicate de bico</li>
+                    <li>Alicate universal</li>
+                    <li>Jogo de chaves de fenda e Phillips isoladas</li>
+                    <li>Desencapador de fios</li>
+                    <li>Fita isolante de boa qualidade</li>
+                </ul>
+                <h3>Regras de Ouro da Segurança</h3>
+                <ol>
+                    <li><strong>SEMPRE DESLIGUE A ENERGIA NO DISJUNTOR GERAL ANTES DE COMEÇAR.</strong></li>
+                    <li>Sempre use um multímetro para <strong>confirmar</strong> que o circuito está realmente sem energia antes de tocar em qualquer fio.</li>
+                    <li>Nunca trabalhe em locais úmidos ou molhados.</li>
+                    <li>Use ferramentas com isolamento adequado e em bom estado.</li>
+                    <li>Na dúvida, <strong>PARE E CHAME UM PROFISSIONAL</strong>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="calculadora">
+            <h2>Calculadora Elétrica (Base NBR 5410)</h2>
+            <p>Use esta ferramenta para ter uma <strong>estimativa</strong> da carga e do dimensionamento. Os resultados são baseados em regras simplificadas da norma.</p>
+            <div class="calculadora">
+                <select id="tipoCalculo">
+                    <option value="">-- Selecione o tipo de cálculo --</option>
+                    <option value="iluminacao">1. Potência de Iluminação de um Cômdo</option>
+                    <option value="tugs">2. Tomadas de Uso Geral (TUGs) de um Cômdo</option>
+                    <option value="dimensionamento">3. Dimensionar Circuito (Disjuntor e Fio)</option>
+                </select>
+
+                <div id="inputs"></div>
+                
+                <button onclick="realizarCalculo()">Calcular</button>
+
+                <div id="resultado">O resultado do cálculo aparecerá aqui.</div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Desenvolvido como uma ferramenta de aprendizado. Reforçamos: sempre contrate um engenheiro eletricista ou eletrotécnico para seus projetos.</p>
+    </footer>
+
+    <script>
+        const tipoCalculoSelect = document.getElementById('tipoCalculo');
+        const inputsDiv = document.getElementById('inputs');
+        const resultadoDiv = document.getElementById('resultado');
+
+        tipoCalculoSelect.addEventListener('change', function() {
+            const tipo = this.value;
+            inputsDiv.innerHTML = ''; // Limpa os inputs anteriores
+            resultadoDiv.innerHTML = 'O resultado do cálculo aparecerá aqui.';
+
+            if (tipo === 'iluminacao') {
+                inputsDiv.innerHTML = `
+                    <label for="area">Área do cômodo (m²):</label>
+                    <input type="number" id="area" placeholder="Ex: 12.5">
+                `;
+            } else if (tipo === 'tugs') {
+                inputsDiv.innerHTML = `
+                    <label for="perimetro">Perímetro do cômodo (m):</label>
+                    <input type="number" id="perimetro" placeholder="Ex: 14">
+                    <label for="tipoComodo">Tipo de cômodo:</label>
+                    <select id="tipoComodo">
+                        <option value="sala">Sala / Dormitório</option>
+                        <option value="cozinha">Cozinha / Copa / Área de Serviço</option>
+                        <option value="banheiro">Banheiro</option>
+                        <option value="varanda">Varanda</option>
+                    </select>
+                `;
+            } else if (tipo === 'dimensionamento') {
+                inputsDiv.innerHTML = `
+                    <label for="potencia">Potência total do circuito (W):</label>
+                    <input type="number" id="potencia" placeholder="Ex: 5400 para um chuveiro">
+                    <label for="tensao">Tensão do circuito (V):</label>
+                    <select id="tensao">
+                        <option value="127">127V</option>
+                        <option value="220">220V</option>
+                    </select>
+                `;
+            }
+        });
+
+        function realizarCalculo() {
+            const tipo = tipoCalculoSelect.value;
+            if (!tipo) {
+                resultadoDiv.innerText = 'Por favor, selecione um tipo de cálculo.';
+                return;
+            }
+
+            try {
+                if (tipo === 'iluminacao') calcularIluminacao();
+                else if (tipo === 'tugs') calcularTUGs();
+                else if (tipo === 'dimensionamento') dimensionarCircuito();
+            } catch (error) {
+                resultadoDiv.innerText = `Erro na entrada de dados. Verifique os valores inseridos. Detalhe: ${error.message}`;
+            }
+        }
+
+        function getInputAsFloat(id) {
+            const value = document.getElementById(id).value;
+            if (value === '') throw new Error(`O campo "${id}" está vazio.`);
+            const number = parseFloat(value);
+            if (isNaN(number) || number <= 0) throw new Error(`Valor inválido para o campo "${id}". Insira um número positivo.`);
+            return number;
+        }
+
+        function calcularIluminacao() {
+            const area = getInputAsFloat('area');
+            let potencia;
+            let texto;
+
+            if (area <= 6) {
+                potencia = 100;
+                texto = `Para áreas de até 6 m², a potência mínima é de 100 VA.`;
+            } else {
+                const areaAdicional = area - 6;
+                const incrementos = Math.ceil(areaAdicional / 4);
+                potencia = 100 + (incrementos * 60);
+                texto = `Cálculo: 100 VA (para os 6 m² iniciais) + ${incrementos} x 60 VA (para os ${areaAdicional.toFixed(2)} m² restantes).`;
+            }
+            resultadoDiv.innerHTML = `Potência Mínima de Iluminação: <strong>${potencia} VA</strong>\n\n${texto}`;
+        }
+
+        function calcularTUGs() {
+            const perimetro = getInputAsFloat('perimetro');
+            const tipoComodo = document.getElementById('tipoComodo').value;
+            let qtdTomadas = 0;
+            let potenciaTotal = 0;
+            let texto = '';
+
+            if (tipoComodo === 'sala') {
+                qtdTomadas = Math.ceil(perimetro / 5);
+                potenciaTotal = qtdTomadas * 100;
+                texto = `Regra: 1 tomada a cada 5 metros de perímetro.\nPotência: 100 VA por tomada.`;
+            } else if (tipoComodo === 'banheiro') {
+                qtdTomadas = 1;
+                potenciaTotal = 600;
+                texto = `Regra: No mínimo 1 tomada junto ao lavatório.\nPotência: Mínimo 600 VA.`;
+            } else if (tipoComodo === 'cozinha') {
+                qtdTomadas = Math.ceil(perimetro / 3.5);
+                if (qtdTomadas <= 3) {
+                    potenciaTotal = qtdTomadas * 600;
+                } else {
+                    potenciaTotal = (3 * 600) + ((qtdTomadas - 3) * 100);
+                }
+                texto = `Regra: 1 tomada a cada 3,5 metros de perímetro.\nPotência: 600 VA para as 3 primeiras, 100 VA para as demais.`;
+            } else if (tipoComodo === 'varanda') {
+                qtdTomadas = 1;
+                potenciaTotal = 100;
+                texto = `Regra: Pelo menos 1 tomada obrigatória em varandas.`;
+            }
+            
+            resultadoDiv.innerHTML = `<strong>Resultado para ${tipoComodo.replace(/^\w/, c => c.toUpperCase())}:</strong>\n` +
+                                     `Quantidade Mínima de Tomadas: <strong>${qtdTomadas}</strong>\n` +
+                                     `Potência Total das TUGs: <strong>${potenciaTotal} VA</strong>\n\n` +
+                                     `<em>${texto}</em>`;
+        }
+
+        function dimensionarCircuito() {
+            const potencia = getInputAsFloat('potencia');
+            const tensao = getInputAsFloat('tensao');
+            const corrente = potencia / tensao;
+            let disjuntor = 0;
+            let fio_mm2 = "N/A";
+            let aviso = "";
+
+            if (corrente <= 15) {
+                disjuntor = 15;
+                fio_mm2 = (potencia <= 1500 && tensao == 127) ? "1.5 mm² (Iluminação)" : "2.5 mm²";
+            } else if (corrente <= 20) {
+                disjuntor = 20;
+                fio_mm2 = "2.5 mm²";
+            } else if (corrente <= 25) {
+                disjuntor = 25;
+                fio_mm2 = "4.0 mm²";
+            } else if (corrente <= 32) {
+                disjuntor = 32;
+                fio_mm2 = "6.0 mm²";
+            } else if (corrente <= 40) {
+                disjuntor = 40;
+                fio_mm2 = "6.0 mm²";
+            } else if (corrente <= 50) {
+                disjuntor = 50;
+                fio_mm2 = "10.0 mm²";
+            } else {
+                aviso = "Corrente muito alta! Dimensionamento complexo necessário. Consulte um profissional!";
+            }
+            
+            if (!aviso) {
+                 resultadoDiv.innerHTML = `<strong>Sugestão de Dimensionamento:</strong>\n` +
+                                     `Corrente Calculada: <strong>${corrente.toFixed(2)} A</strong>\n` +
+                                     `Disjuntor Termomagnético: <strong>${disjuntor} A</strong>\n` +
+                                     `Bitola Mínima do Condutor (fio): <strong>${fio_mm2}</strong>\n\n`+
+                                     `<em>Atenção: Valores para cabos de cobre, isolação PVC, instalados em eletroduto embutido em alvenaria (Método B1). Fatores como temperatura e agrupamento podem exigir cabos de maior bitola.</em>`;
+            } else {
+                 resultadoDiv.innerHTML = `<strong>${aviso}</strong>\nCorrente Calculada: <strong>${corrente.toFixed(2)} A</strong>`;
+            }
+        }
+    </script>
+
+</body>
+</html>
